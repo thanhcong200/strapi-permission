@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reports",
+  "info": {
+    "singularName": "report",
+    "pluralName": "reports",
+    "displayName": "Report"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "user_permission_group_permission": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::group-permission.group-permission",
+      "inversedBy": "reports"
+    }
+  }
+}

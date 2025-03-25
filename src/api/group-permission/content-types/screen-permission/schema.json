@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "screen_permissions",
+  "info": {
+    "singularName": "screen-permission",
+    "pluralName": "screen-permissions",
+    "displayName": "[User Permission] Screen Permission",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "POST",
+        "PATCH",
+        "PUT",
+        "GET",
+        "DELETE"
+      ]
+    },
+    "screens": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::group-permission.screen",
+      "inversedBy": "screen_permissions"
+    },
+    "name": {
+      "type": "string"
+    }
+  }
+}

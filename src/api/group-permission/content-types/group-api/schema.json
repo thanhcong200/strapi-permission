@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "group_apis",
+  "info": {
+    "singularName": "group-api",
+    "pluralName": "group-apis",
+    "displayName": "[User Permission] Group API"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "prefix_api": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "screen": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::group-permission.screen",
+      "inversedBy": "group_apis"
+    }
+  }
+}

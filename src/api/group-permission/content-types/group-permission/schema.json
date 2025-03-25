@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "group_permissions",
+  "info": {
+    "singularName": "group-permission",
+    "pluralName": "group-permissions",
+    "displayName": "[User Permission] Group Permission",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "string"
+    },
+    "group_type": {
+      "type": "enumeration",
+      "enum": [
+        "O365",
+        "AD",
+        "EDA"
+      ]
+    },
+    "permission_type": {
+      "type": "enumeration",
+      "enum": [
+        "public",
+        "private"
+      ]
+    },
+    "group_users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::group-permission.group-user",
+      "mappedBy": "group_permission"
+    },
+    "screen": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::group-permission.screen",
+      "inversedBy": "group_permissions"
+    },
+    "reports": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::report.report",
+      "mappedBy": "user_permission_group_permission"
+    }
+  }
+}

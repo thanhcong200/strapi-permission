@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "group_users",
+  "info": {
+    "singularName": "group-user",
+    "pluralName": "group-users",
+    "displayName": "[User Permission] Group User"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "user_status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "inactive"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "group_users"
+    },
+    "group_permission": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::group-permission.group-permission",
+      "inversedBy": "group_users"
+    }
+  }
+}

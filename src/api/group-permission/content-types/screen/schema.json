@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "screens",
+  "info": {
+    "singularName": "screen",
+    "pluralName": "screens",
+    "displayName": "[User Permission] Screen",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "parent_id": {
+      "type": "integer"
+    },
+    "name": {
+      "type": "string"
+    },
+    "prefix_uri": {
+      "type": "string"
+    },
+    "group_permissions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::group-permission.group-permission",
+      "mappedBy": "screen"
+    },
+    "group_apis": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::group-permission.group-api",
+      "mappedBy": "screen"
+    },
+    "screen_permissions": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::group-permission.screen-permission",
+      "mappedBy": "screens"
+    }
+  }
+}
